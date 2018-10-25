@@ -1,0 +1,79 @@
+<!--Navagation Bar - Primary -->
+<div ng-include="'/1.1.1/html/components/navbar_user.html'"></div>
+
+<div class="layout_main">
+
+    <div class="layout_wrapper">
+
+        <div class="layout_full">
+
+            <div class="layout_full_title">Edit List {{tasklist.name}}</div>
+
+            <div class="layout_full_text">
+
+                
+                
+            <div ng-init="editmemberschecked = false">
+                <label>
+                    <input type="checkbox" ng-model="editmemberschecked" />
+                    Edit Members
+                </label>
+                <div class="editmember_form form-show-hide" ng-show="editmemberschecked">
+                  
+                    <form name="addMemberForm" ng-submit="addmember()" novalidate>
+            
+                        <md-input-container>
+                          <label>Select Member:</label>
+                          <md-select ng-model="addmember.membername">
+                            <md-option><em>None</em></md-option>
+                            <md-option ng-repeat="task in tasks" ng-value="task.name">
+                              {{task.name}}
+                            </md-option>
+                          </md-select>
+                        </md-input-container>
+
+                    </form>                    
+                  
+              </div>
+            </div>
+                           
+            </div>
+                     
+            <div style="clear:both;"></div>
+
+                <div style="clear:both; height:50px;"></div>              
+                               
+                    <form name="addTaskForm" ng-submit="addtask()" novalidate>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Task Name</label>
+                            <input ng-model="addtask.taskname">
+                        </md-input-container>            
+                        <md-button class="md-raised md-primary" type="submit"> +Add Task</md-button>
+
+                    </form>   
+            <div style="clear:both; height:50px;"></div>           
+            
+                 <div ng-repeat="(key, task) in tasks">
+                     <a href="#" ng-click="deletetask(task.id)">X</a>  
+                     &nbsp;&nbsp;
+                    <a href="#" ng-click="edittask(task.id)">edit</a>  
+                                       
+                    <input type="checkbox" ng-model="task.complete" ng-disabled="true">
+                    <span style="font-size:12px">(Progress: {{task.progress}}%)</span>&nbsp;&nbsp;{{task.name}}
+                </div>              
+
+        </div>
+
+        <div style="clear:both; height:50px;"></div>
+           
+    </div>
+
+    <div style="clear:both; height:50px;"></div>
+
+</div>
+
+
+
+<!--Footer-->
+<div ng-include="'/1.1.1/html/components/footer.html'"></div>

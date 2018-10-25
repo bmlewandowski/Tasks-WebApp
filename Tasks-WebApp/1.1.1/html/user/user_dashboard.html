@@ -1,0 +1,61 @@
+<!--Navagation Bar - Primary -->
+<div ng-include="'/1.1.1/html/components/navbar_user.html'"></div>
+
+<div class="layout_main">
+
+    <div class="layout_wrapper">
+
+        <div class="layout_full">
+
+            <div class="layout_full_title">Dashboard</div>
+
+            <div class="layout_full_text">
+                From Here you can manage your account, reset passwords and change any settings for your SkillResults system. Just navigate to the area bleow to perform any action.
+            </div>
+
+            <div style="clear:both;"></div>
+             
+                <div style="clear:both; height:50px;"></div>              
+                               
+                    <form name="addTasklistForm" ng-submit="addtasklist()" novalidate>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Tasklist Name</label>
+                            <input ng-model="addtasklist.tasklistname">
+                        </md-input-container> 
+
+                        <md-button type="submit" class="md-raised md-primary" name="submit"> +Add Tasklist </md-button>
+                    </form>               
+        
+                <div style="clear:both; height:50px;"></div>       
+      
+                <div layout="row" layout-xs="column" ng-repeat="(key, tasklist) in tasklists">    
+                    <div flex>        
+                        <a href="/editlist/{{tasklist.id}}">          
+                            <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+                                <md-card-title>
+                                  <md-card-title-text>
+                                    <span class="md-headline">{{tasklist.name}}</span>
+                                    <span class="md-subhead">Small</span>
+                                  </md-card-title-text>
+                                  <md-card-title-media>
+                                    <div class="md-media-sm card-media"><img src="/1.1.1/img/user-home/checklist.png"></div>
+                                  </md-card-title-media>
+                                </md-card-title>
+                            </md-card>                   
+                        </a>                
+                    </div>
+                </div>
+            
+        </div>
+
+        <div style="clear:both; height:50px;"></div>
+        
+    </div>
+
+    <div style="clear:both; height:50px;"></div>
+
+</div>
+
+<!--Footer-->
+<div ng-include="'/1.1.1/html/components/footer.html'"></div>

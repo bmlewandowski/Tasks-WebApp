@@ -1,0 +1,34 @@
+html {
+    /*Added to force scrollbars to preserve layout*/
+    --overflow: -moz-scrollbars-vertical;
+    --overflow-y: scroll;
+}
+
+body {
+    /*Added to ensure fonts are displayed correctly across browsers*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*Default Page Fonts*/
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    background-color: #FFF;
+    color: #025895;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #025895;
+}
+
+img {
+    border: 0px;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 20px;
+}

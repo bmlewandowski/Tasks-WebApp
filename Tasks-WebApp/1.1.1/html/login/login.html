@@ -1,0 +1,52 @@
+<!--Navagation Bar - Primary -->
+<div ng-include="'/1.1.1/html/components/navbar_user.html'"></div>
+
+<div class="layout_main">
+
+    <div class="layout_wrapper">
+
+        <div class="layout_full">
+
+            <div class="layout_full_title">Login</div>
+
+            <div class="layout_full_text">Enter your email address to recieve your secure login link to your email. No password needed.</div>
+            
+            <div style="clear: both;padding-bottom: 30px;"></div>
+            
+            <p>The below link will be active with your key after pressing the button:</p> 
+            
+            <strong><a ng-href="{{secureloginlink}}">CLICK THIS SECRET LOGIN KEY LINK</a></strong>
+            
+           <div style="clear: both;padding-bottom: 30px;"></div>
+            
+            <!--LOGIN FORM BEGIN-->
+            
+            <form name="loginEmailForm" ng-submit="loginemail()" novalidate>
+            
+                <input class="user_search_input" placeholder="Email" type="text" name="Email" ng-model="loginemail.email" />           
+            
+                <button class="user_search_button" ng-click="submit()" style="border:none;">LOGIN</button>
+                
+            </form>
+        
+            <!--Link to Register Area-->
+
+            <div style="margin-top:30px;">          
+                <a class="form_message" href="/register">Need an Account? Register Here</a>        
+            </div>
+
+            <div style="clear:both;"></div>
+
+
+        </div>
+
+    </div>
+
+    <div style="clear:both; height:50px;"></div>
+
+</div>
+
+
+
+<!--Footer-->
+<div ng-include="'/1.1.1/html/components/footer.html'"></div>

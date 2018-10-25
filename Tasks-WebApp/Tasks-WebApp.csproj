@@ -75,11 +75,36 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1.1.1\css\default.css" />
+    <Content Include="1.1.1\html\admin\admin_help.html" />
+    <Content Include="1.1.1\html\admin\admin_home.html" />
+    <Content Include="1.1.1\html\admin\admin_settings.html" />
+    <Content Include="1.1.1\html\admin\admin_users.html" />
+    <Content Include="1.1.1\html\components\footer.html" />
+    <Content Include="1.1.1\html\components\navbar_admin.html" />
+    <Content Include="1.1.1\html\components\navbar_user.html" />
+    <Content Include="1.1.1\html\login\auth.html" />
+    <Content Include="1.1.1\html\login\login.html" />
+    <Content Include="1.1.1\html\register\register.html" />
+    <Content Include="1.1.1\html\user\user_dashboard.html" />
+    <Content Include="1.1.1\html\user\user_editlist.html" />
+    <Content Include="1.1.1\html\user\user_help.html" />
+    <Content Include="1.1.1\html\user\user_home.html" />
+    <Content Include="1.1.1\html\user\user_settings.html" />
+    <Content Include="1.1.1\html\user\user_tasklist.html" />
+    <Content Include="1.1.1\img\checklist.png" />
+    <Content Include="1.1.1\js\configs.js" />
+    <Content Include="1.1.1\js\controllers.js" />
+    <Content Include="1.1.1\js\default.js" />
+    <Content Include="1.1.1\js\directives.js" />
+    <Content Include="1.1.1\js\providers.js" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
