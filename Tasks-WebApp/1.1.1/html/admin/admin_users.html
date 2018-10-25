@@ -3,7 +3,44 @@
 
 <div>
 
-ADMIN USERS BODY
+    <form name="addMemberForm" ng-submit="adduser()" validate>
+        <md-input-container class="md-block">
+            <label>New User Email</label>
+            <input type="email" name="useremail" ng-model="adduser.useremail"
+                   minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+            <div ng-messages="addMemberForm.useremail.$error" role="alert">
+                <div ng-message-exp="['minlength', 'maxlength', 'pattern']">
+                    Email must be between 10 and 100 characters long and look like an e-mail address.
+                </div>
+            </div>
+            <md-button type="submit" class="md-raised md-primary" name="submit" ng-disabled="maxusers()"> + Add New User </md-button>
+        </md-input-container>
+    </form>
+
+    <!--Skill Table Grid-->
+
+    <table>
+
+        <tr>
+            <td>#</td>
+            <td>UserId</td>
+            <td>Email</td>
+            <td>Date Added</td>
+            <td>Login Link</td>
+
+        </tr>
+
+        <tr ng-repeat="(key,value) in orgusers">
+            <td></td>
+            <td>{{value.userId}}</td>
+            <td>{{value.userName}}</td>
+            <td>{{value.created| date:'MM/dd/yyyy'}}</td>
+            <td>Click to Send</td>
+
+        </tr>
+
+    </table>
 
 </div>
 

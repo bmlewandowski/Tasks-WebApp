@@ -29,7 +29,7 @@ angularApp.controller("user_dashboardCtrl", function ($scope,$http,$location) {
     }; 
     
     $scope.addtasklist = function () {
-             console.log('hap');
+        console.log($scope.addtasklist.tasklistname);
         var dataObj = {
                 name : $scope.addtasklist.tasklistname
         };        
@@ -203,7 +203,74 @@ angularApp.controller("admin_homeCtrl", function ($scope) {
 
 });
 
-angularApp.controller("admin_usersCtrl", function ($scope) {
+angularApp.controller("admin_usersCtrl", function ($scope, $http, $location) {
+
+    $scope.initialize = function () {
+
+        $scope.adduser.useremail = '';
+        $scope.orgusers = {};
+        //$scope.orgid - {};
+
+        $http.get('http://localhost:15790/api/organizationusers',
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+                }
+            }).then(function (response) {
+
+                $scope.orgusers = response.data;
+                //$scope.orgid = $scope.orgusers[0].orgId;
+
+                console.log(response.data);
+
+            }, function errorCallback(response) {
+
+                console.log("Failed");
+            });
+
+    };
+
+    $scope.maxusers = function () {
+
+        if ($scope.orgusers.length > 5) {
+
+            return true;
+
+        }
+        else {
+
+            return false;
+
+        }
+    };
+
+    $scope.adduser = function () {
+
+        var dataObj = {
+            email: $scope.adduser.useremail,
+
+        };
+
+        $http.post('http://localhost:15790/api/account/registeruser', dataObj,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+                }
+            }).then(function (response) {
+
+                console.log(response);
+                $scope.initialize();
+
+            }, function errorCallback(response) {
+
+                console.log("Add Users Failed");
+            });
+
+    };
+
+    $scope.initialize();
 
     console.log('Admin Users Controller Processed');
 
@@ -229,7 +296,7 @@ angularApp.controller("loginCtrl", function ($scope,$http) {
                 email : $scope.loginemail.email,
         };        
 
-        $http.post('http://localhost:15790/api/checkin', dataObj,
+        $http.post('http://localhost:15790/api/Authenticate', dataObj,
         {
             headers: {
                 'Content-Type': 'application/json'
@@ -263,7 +330,7 @@ angularApp.controller("authCtrl", function ($scope,$http,$routeParams,$location,
     
     $http({
       method: 'GET',
-      url: 'http://localhost:15790/api/checkin?UserId=' + UserId + '&Authkey01=' + Authkey01 + '&Authkey02=' + Authkey02
+      url: 'http://localhost:15790/api/Authenticate?UserId=' + UserId + '&Authkey01=' + Authkey01 + '&Authkey02=' + Authkey02
     }).then(function successCallback(response) {
         
         localStorage.setItem('accessToken', response.data.access_token);
