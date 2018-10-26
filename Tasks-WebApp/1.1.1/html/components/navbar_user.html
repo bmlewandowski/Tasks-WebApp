@@ -1,26 +1,15 @@
-<div class="navbar">
 
-            <a href="/admin">
-                <div class="navbar_areabutton">ADMIN AREA</div>
-            </a>
-</div>
-
-<!--Sub Navigation Area-->
-<div class="navbar_submenu">
-
-    <div class="navbar_submenu_wrapper">
-
-        <div class="navbar_submenu_link"><a href="/">Home</a></div>
-
-        <div class="navbar_submenu_link"><a href="/dashboard/">Dashboard</a></div>
-
-        <div class="navbar_submenu_link"><a href="/help/">Help</a></div>
-        
-        <div class="navbar_submenu_link"><a href="/login/">Login</a></div>
-    
-        <div class="navbar_submenu_link"><a href="/register/">Register</a></div>
-
-    </div>
-
-</div>
+    <md-content class="md-padding">
+    <span>TASKS API</span>
+        <md-nav-bar md-no-ink-bar="disableInkBar"
+                    md-selected-nav-item="currentNavItem"
+                    nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="/" name="Home">Home</md-nav-item>  
+            <md-nav-item md-nav-href="/dashboard/" name="Dashboard">Dashboard</md-nav-item>
+            <md-nav-item md-nav-href="/settings/" name="Settings">Settings</md-nav-item>        
+            <md-nav-item md-nav-href="/register/" name="Register">Register</md-nav-item> 
+            <md-nav-item md-nav-href="/login/" name="Login">Login</md-nav-item>   
+            <md-nav-item md-nav-href="/admin/" name="Admin">Admin</md-nav-item>         
+        </md-nav-bar>
+    </md-content>
 
